@@ -1,0 +1,28 @@
+<!-- Создайте функцию, которая возвращает день недели для даты.
+День нужно возвратить в формате - понедельник имеет номер 1, вторник номер 2, …, воскресенье - номер 7. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+</head>
+<body>
+        <input type="text" name="data" id="data">
+        <input type="button" name="okBut" id="okBut" value="OK">
+        <script>
+            let check = /(19|20)\d\d-((0[1-9]|1[012])-(0[1-9]|[12]\d)|(0[13-9]|1[012])-30|(0[13578]|1[02])-31)/;
+            let texAr = document.querySelector("#data");
+            let but = document.querySelector("#okBut");
+            but.addEventListener("click", dateIdent);
+            function dateIdent() {
+                if (check.test(texAr.value)) {
+                    let weekDay = new Date(texAr.value);
+                    alert(weekDay);
+                    alert(weekDay.getDay());
+                } else {
+                    alert("Bad type or isn`t a date. Try with YYYY-MM-DD")
+                }
+            }
+        </script>
+</body>
+</html>
